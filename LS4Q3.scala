@@ -4,28 +4,35 @@ object thirdQuestion {
   
   def toLower(text:String):String = { return text.toLowerCase }
   
-  def formatNames(name:String)(strFunc:String => String):String { return strFunc(name) }
-  
-  
-  // Test1:  Benny -> BENNY
-  println( formatNames("Benny")(toUpper) )
-  
-  
-  // Test2:  Niroshan -> NIroshan
+  def formatNames(name:String)(strFunc:String => String):String = { return strFunc(name) }
+
+  // This function is for Test2
   def testFunc2( text:String ):String = {
     return (text.head.toString + text.tail.head.toString).toUpperCase + text.tail.tail.toLowerCase
   }
-  println( formatNames("Niroshan")(testFunc2) )
   
-  
-  // Test3:  Saman -> saman
-  println( formatNames("Saman")(toLower) )
-  
-  
-  // Test4:  Kumara -> KumarA
+  // This function is for Test4
   def testFunc4( text:String ):String = {
-    return text.head.toString.toUpperCase + text.substring(1, text.length-1).toLower + text.last.toString.toUpperCase
+      return text.head.toString.toUpperCase + text.substring(1, text.length-1).toLowerCase + text.last.toString.toUpperCase
   }
-  println( formatNames("Kumara")(testFunc4) )
 
+
+  def main(args:Array[String]):Unit = {  
+    
+    // Test1:  Benny -> BENNY
+    println( formatNames("Benny")(toUpper) )
+  
+  
+    // Test2:  Niroshan -> NIroshan
+    println( formatNames("Niroshan")(testFunc2) )
+  
+  
+    // Test3:  Saman -> saman
+    println( formatNames("Saman")(toLower) )
+  
+  
+    // Test4:  Kumara -> KumarA
+    println( formatNames("Kumara")(testFunc4) )
+
+  }
 }

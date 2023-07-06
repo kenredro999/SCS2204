@@ -1,4 +1,4 @@
-object firstQuest {
+object LS4Q1 {
 
   def intRate( dep:Float ):Float = {
     	 if	( dep >=2000000 ) return 0.065
@@ -10,6 +10,12 @@ object firstQuest {
   
   def interest( dep:Float ):Double = {
     return BigDecimal(dep*intRate(dep)).setScale(2,BigDecimal.RoundingMode.HALF_UP).toDouble
+  }
+
+  def main(args:Array[String]):Unit = {
+    print("Deposite: ")
+    val deposite = scala.io.StdIn.readFloat()
+    println("interest: " + interest(deposite))
   }
 
 }
